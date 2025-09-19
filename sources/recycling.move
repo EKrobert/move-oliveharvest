@@ -98,7 +98,7 @@ module oliveharvest::recycling {
         (id, creator, creator_type, date, weight, waste_type, note, destination)
     }
 
-    // NOUVELLE FONCTION: Enregistrer déchets AVEC récompenses
+    //  Enregistrer déchets AVEC récompenses
     public entry fun record_waste_with_rewards(
         creator_type: vector<u8>,
         date: u64,
@@ -284,9 +284,7 @@ module oliveharvest::recycling {
 
 
 
-// Ajoutez cette nouvelle fonction dans votre module Move
-
-/// Fonction publique que TOUT LE MONDE peut appeler pour déclencher des récompenses
+/// Fonction publique pour déclencher des récompenses
 public entry fun record_waste_public_rewards(
     creator_type: vector<u8>,
     date: u64,
@@ -314,8 +312,7 @@ public entry fun record_waste_public_rewards(
         destination,
     };
 
-    // Émettre l'événement de récompense SANS créer les tokens
-    // (simulation pour le prototype)
+    // Émettre l'événement de récompense 
     if (eco_tokens > 0) {
         evt::emit(EcoTokensEarned {
             user: creator,

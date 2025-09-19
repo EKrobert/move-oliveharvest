@@ -4,7 +4,7 @@ module oliveharvest::transformation {
     use iota::event::{Self as evt};
     use oliveharvest::recycling::{Self as recycling, Waste};
 
-    // ✅ Struct pour le produit recyclé avec toutes les infos
+    // Struct pour le produit recyclé avec toutes les infos
     public struct RecycledProduct has key, store {
         id: object::UID,
         // Informations du déchet original
@@ -21,12 +21,12 @@ module oliveharvest::transformation {
         transformation_temperature: u64,
         transformation_note: vector<u8>,
         // Nouveau produit
-        product_type: vector<u8>,        // Type de produit recyclé (plastique, papier, etc.)
-        product_quantity: u64,           // Quantité produite
-        product_quality_grade: vector<u8>, // Grade de qualité (A, B, C)
+        product_type: vector<u8>,        
+        product_quantity: u64,           
+        product_quality_grade: vector<u8>, 
     }
 
-    // ✅ Event pour tracer la transformation
+    // Event pour tracer la transformation
     public struct WasteTransformed has copy, drop {
         product_id: address,
         waste_id: address,
@@ -44,7 +44,7 @@ module oliveharvest::transformation {
         product_quality_grade: vector<u8>,
     }
 
-    // ✅ Fonction de transformation qui consume le Waste et produit le RecycledProduct
+    // Fonction de transformation qui consume le Waste et produit le RecycledProduct
     public entry fun transform_waste(
         waste: Waste,
         transformation_date: u64,
